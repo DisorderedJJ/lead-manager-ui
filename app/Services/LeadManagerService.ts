@@ -1,5 +1,3 @@
-
-
 import axiosClient from "../configs/AxiosConfig";
 import { LeadData } from "../types/Common";
 
@@ -11,7 +9,9 @@ const createNewLead = async (newLead:LeadData ): Promise<LeadData> => {
     return await axiosClient.post('/', newLead);
 }
 
-export default {
+const funcs = {
     getAllLeads: getAllLeads,
     createNewLead: createNewLead
-};
+}
+
+export default funcs

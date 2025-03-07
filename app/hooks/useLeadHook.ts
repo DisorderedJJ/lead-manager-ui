@@ -10,11 +10,11 @@ export const useLeads = () => {
     });
   };
   
-export const mutateLeads = () => {
+export const useMutateLeads = () => {
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: LeadManagerService.createNewLead,
-        onSuccess: (data) => {
+        onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['leads'] });
           },
           onError: (error: AxiosError<ErrorResponse>) => {

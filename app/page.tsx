@@ -1,9 +1,7 @@
 "use client"
-import { Box, Button, Card, CardContent, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Image from "next/image";
+import { Button, Card, CardContent, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React from "react";
-import { mutateLeads, useLeads } from "./hooks/useLeadHook";
+import { useMutateLeads, useLeads } from "./hooks/useLeadHook";
 import { LeadData } from "./types/Common";
 
 export default function Home() {
@@ -12,8 +10,8 @@ export default function Home() {
   const [email, setEmail] = React.useState("");
   const [status, setStatus] = React.useState("");
 
-  const {data, error, isLoading} = useLeads();
-  const createLead = mutateLeads()
+  const {data, isLoading} = useLeads();
+  const createLead = useMutateLeads()
 
   const onCreateNewLead = () => {
     const data: LeadData = {
