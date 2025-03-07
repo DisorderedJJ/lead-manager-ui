@@ -73,9 +73,9 @@ export default function Home() {
                     {isLoading? (
                       <h1>Loading !!!</h1>
                         ): data? (
-                          data.map(lead => {
+                          data.map((lead, index) => {
                             return(
-                            <Card>
+                            <Card key={index}>
                               <CardContent>
                                 <Stack spacing={2}>
                                   <h3>Name: {lead.name}</h3>
